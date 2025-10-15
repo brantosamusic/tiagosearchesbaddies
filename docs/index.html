@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tiago Bart • The Quest for a Good Woman</title>
-  <meta name="description" content="Official fanpage for Tiago Bart — highlights, gallery, timeline, FAQs, and the Quest to find a good woman." />
+  <title>Tiago Bart • Love Page</title>
+  <meta name="description" content="Official love page for Tiago Bart — highlights, gallery, timeline, FAQs, and the quest to find a good woman." />
   <style>
     :root {
       --bg: #0b1220;
@@ -118,8 +118,8 @@
 
   <!-- HERO -->
   <header class="hero container">
-    <span class="badge">❤️ The Quest is On — Open to connections worldwide</span>
-    <h1>Welcome to Tiago's Fanpage — from Luxembourg, focused, fun, and open-hearted.</h1>
+    <span class="badge">❤️ Love Page — Open to connections worldwide</span>
+    <h1>Welcome to Tiago's Love Page — from Luxembourg, focused, fun, and open-hearted.</h1>
     <p>Here you'll find Tiago's story, values, highlights, photos, and the community around his playful mission: meeting a kind, confident woman who vibes with his goals and sense of humor. Dive in, have fun, and if the shoe fits… say hi. 😉</p>
     <div class="cta">
       <a class="btn primary" href="#join">Join the Quest</a>
@@ -140,7 +140,7 @@
             <tr><th>What he values</th><td>Honesty, kindness, good communication, fitness</td></tr>
             <tr><th>Hobbies</th><td>Gym, running</td></tr>
             <tr><th>Goal</th><td>Train for and complete an Ironman</td></tr>
-            <tr><th>Deal‑breakers</th><td>Dishonesty, disrespect, ongoing drama</td></tr>
+            <tr><th>Deal‑breakers</th><td>Disrespect, dishonesty, incompatible values</td></tr>
           </table>
         </div>
         <div class="two card" style="background:#0f1a33;">
@@ -237,7 +237,7 @@
     <!-- JOIN / CONTACT FORM -->
     <section id="join" class="card" style="margin-top:16px;">
       <h2>Join the Quest</h2>
-      <p class="lead">Say hello or make a friendly introduction. Serious, respectful messages only. 💌</p>
+      <p class="lead">Say hello or make a friendly introduction. Serious, respectful messages only. 💌 Submissions go to Tiago’s email.</p>
       <form id="contactForm">
         <div class="row">
           <div>
@@ -285,12 +285,13 @@
         </div>
         <div style="display:flex; gap:10px; align-items:center; margin-top: 8px;">
           <button class="btn primary" type="submit">Send</button>
-          <span id="formNote" class="muted small">No spam. You’ll get a quick confirmation.</span>
+          <a id="mailtoLink" class="btn" href="#">or send via email</a>
+          <span id="formNote" class="muted small">Instant email delivery via your mail app.</span>
         </div>
       </form>
       <p id="formSuccess" class="notice" style="display:none; margin-top:12px;">Thanks! Your message was noted locally. To receive real emails, connect Formspree (instructions below).</p>
       <div class="small muted" style="margin-top:10px;">
-        👉 To make the form send real emails: create a free Formspree form and replace <code>handleSubmit</code> with a <code>fetch</code> POST to your endpoint.
+        👉 You can send directly via your email app using the button above. For direct form-to-email without opening an email app, connect a free Formspree endpoint and replace the code as noted in the script.
       </div>
     </section>
   </main>
@@ -302,7 +303,7 @@
   </div>
 
   <footer class="container">
-    <small>© <span id="y"></span> Tiago Bart Fanpage • Built with GitHub Pages • <span id="counter" title="Secret visitor loves">❤️ 0</span></small>
+    <small>© <span id="y"></span> Tiago Bart Love Page • Built with GitHub Pages • <span id="counter" title="Secret visitor loves">❤️ 0</span></small>
   </footer>
 
   <script>
@@ -310,37 +311,64 @@
     document.getElementById('y').textContent = new Date().getFullYear();
 
     // Simple like/visit counter (local only)
-    const key = 'tiago-like-counter';
-    let c = Number(localStorage.getItem(key) || 0);
-    const el = document.getElementById('counter');
-    function render() { el.textContent = `❤️ ${c}`; }
-    el.addEventListener('click', () => { c++; localStorage.setItem(key, c); render(); });
-    render();
+    (function(){
+      const key = 'tiago-like-counter';
+      let c = Number(localStorage.getItem(key) || 0);
+      const el = document.getElementById('counter');
+      function render() { el.textContent = `❤️ ${c}`; }
+      el.addEventListener('click', () => { c++; localStorage.setItem(key, c); render(); });
+      render();
+    })();
 
     // Lightbox for gallery
-    const box = document.getElementById('lightbox');
-    const img = document.getElementById('lightboxImg');
-    document.querySelectorAll('.gal').forEach(a => {
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        img.src = a.getAttribute('href');
-        box.classList.add('active');
+    (function(){
+      const box = document.getElementById('lightbox');
+      const img = document.getElementById('lightboxImg');
+      document.querySelectorAll('.gal').forEach(a => {
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          img.src = a.getAttribute('href');
+          box.classList.add('active');
+        });
       });
-    });
-    function closeLightbox(){ box.classList.remove('active'); img.removeAttribute('src'); }
-    window.closeLightbox = closeLightbox;
-    box.addEventListener('click', (e)=>{ if(e.target===box) closeLightbox(); });
-    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLightbox(); });
+      function closeLightbox(){ box.classList.remove('active'); img.removeAttribute('src'); }
+      window.closeLightbox = closeLightbox;
+      box.addEventListener('click', (e)=>{ if(e.target===box) closeLightbox(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLightbox(); });
+    })();
 
-    // Fake form handler (demo)
-    const form = document.getElementById('contactForm');
-    const note = document.getElementById('formSuccess');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      // TODO: Replace with your Formspree endpoint
-      note.style.display = 'block';
-      form.reset();
-    });
+    // Direct email sending via mailto (no Formspree needed)
+    (function(){
+      const form = document.getElementById('contactForm');
+      const mailto = document.getElementById('mailtoLink');
+
+      function buildMailto(){
+        const to = 'tiagobarto.lux@hotmail.com';
+        const name = encodeURIComponent(document.getElementById('name').value || '');
+        const contact = encodeURIComponent(document.getElementById('email').value || '');
+        const age = encodeURIComponent(document.getElementById('age').value || '');
+        const city = encodeURIComponent(document.getElementById('city').value || '');
+        const vibe = encodeURIComponent(document.getElementById('vibe').value || '');
+        const ref = encodeURIComponent(document.getElementById('ref').value || '');
+        const msg = encodeURIComponent(document.getElementById('message').value || '');
+        const subject = `New message for Tiago from ${decodeURIComponent(name) || '—'}`;
+        const body = `Name: ${decodeURIComponent(name)}%0AContact: ${decodeURIComponent(contact)}%0AAge: ${decodeURIComponent(age)}%0ACity: ${decodeURIComponent(city)}%0AVibe: ${decodeURIComponent(vibe)}%0AFound via: ${decodeURIComponent(ref)}%0A%0A— Message —%0A${decodeURIComponent(msg)}`;
+        return `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      }
+
+      mailto.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const href = buildMailto();
+        mailto.href = href;
+        window.location.href = href;
+      });
+
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const href = buildMailto();
+        window.location.href = href; // open email client to send directly to Tiago
+      });
+    })();
   </script>
 </body>
 </html>
