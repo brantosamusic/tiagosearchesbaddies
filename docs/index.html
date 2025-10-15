@@ -27,3 +27,349 @@
   </div>
 </body>
 </html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tiago Bart • The Quest for a Good Woman</title>
+  <meta name="description" content="Official fanpage for Tiago Bart — highlights, gallery, timeline, FAQs, and the Quest to find a good woman." />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-2: #0e1830;
+      --text: #eaf2ff;
+      --muted: #a7b3cc;
+      --card: #111a2e;
+      --accent: #6aa5ff;
+      --accent-2: #9ad0ff;
+      --ok: #6affbd;
+      --warn: #ffd166;
+      --maxw: 1040px;
+      --radius: 16px;
+      --shadow: 0 6px 24px rgba(0,0,0,.35);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% 0%, #132041 0%, var(--bg) 60%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-2); }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
+    /* NAV */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(10, 16, 32, 0.6);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .brand { display:flex; align-items:center; gap:10px; font-weight: 700; }
+    .brand .logo { width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--ok)); box-shadow: var(--shadow); }
+    .nav a { color: var(--text); opacity: .9; margin: 0 8px; }
+    .nav a:hover { opacity: 1; }
+    .nav-links { display:flex; align-items:center; flex-wrap: wrap; }
+    /* HERO */
+    .hero { padding: 64px 24px 32px; text-align: center; }
+    .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); margin: 0 0 8px; }
+    .hero p { color: var(--muted); margin: 0 auto 24px; max-width: 720px; }
+    .badge { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius: 999px; background: rgba(106,165,255,.15); color: var(--accent-2); border: 1px solid rgba(106,165,255,.35); font-size: .9rem; }
+    .cta { display:flex; gap:12px; justify-content:center; flex-wrap: wrap; }
+    .btn { padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,.12); background: var(--card); color: var(--text); box-shadow: var(--shadow); }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), #7eb6ff); color: #081225; border: none; font-weight: 700; }
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.04); }
+    /* GRID / CARDS */
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .card { background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px; }
+    .card h3 { margin-top: 0; }
+    .two { grid-column: span 12; }
+    @media (min-width: 800px) { .two { grid-column: span 6; } }
+    .three { grid-column: span 12; }
+    @media (min-width: 900px) { .three { grid-column: span 4; } }
+    /* SECTION HEADERS */
+    section h2 { font-size: clamp(1.4rem, 4vw, 2rem); margin: 8px 0 12px; }
+    section p.lead { color: var(--muted); margin-top: 0; }
+    /* GALLERY */
+    .gallery { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }
+    @media (min-width: 720px) { .gallery { grid-template-columns: repeat(4,1fr); } }
+    .gal img { width: 100%; height: 180px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,.08); cursor: zoom-in; }
+    /* TIMELINE */
+    .timeline { position: relative; padding-left: 22px; }
+    .timeline::before { content:""; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: rgba(255,255,255,.15); }
+    .tl-item { position: relative; margin: 12px 0 18px; }
+    .tl-item::before { content:""; position: absolute; left: -2px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px rgba(106,165,255,.25); }
+    .muted { color: var(--muted); }
+    /* FAQ */
+    details { background: #0f1a33; border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 12px 14px; margin: 8px 0; }
+    summary { cursor: pointer; font-weight: 600; }
+    /* FOOTER */
+    footer { opacity: .8; margin: 40px 0; text-align: center; }
+    .small { font-size: .92rem; }
+    /* LIGHTBOX */
+    .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.8); display:none; align-items:center; justify-content:center; padding: 24px; z-index: 100; }
+    .lightbox img { max-width: 92vw; max-height: 82vh; border-radius: 14px; box-shadow: var(--shadow); }
+    .lightbox.active { display:flex; }
+    .close { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 10px; padding: 8px 10px; cursor: pointer; }
+    /* TABLE */
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,.08); text-align: left; }
+    th { color: var(--muted); font-weight: 600; }
+    /* FORM */
+    .row { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    @media (min-width: 720px) { .row { grid-template-columns: 1fr 1fr; } }
+    input, textarea, select { width: 100%; background: #0f1a33; color: var(--text); border: 1px solid rgba(255,255,255,.15); border-radius: 12px; padding: 12px; }
+    label { font-size: .94rem; color: var(--muted); display:block; margin-bottom: 6px; }
+    .notice { background: rgba(106,255,189,.12); border: 1px solid rgba(106,255,189,.35); color: #c7ffe8; border-radius: 12px; padding: 10px 12px; }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand"><span class="logo"></span> <span>Tiago Bart</span></div>
+      <div class="nav-links small">
+        <a href="#about">About</a>
+        <a href="#highlights">Highlights</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#faq">FAQ</a>
+        <a href="#join">Join</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero container">
+    <span class="badge">💙 The Quest is On — Help Tiago find a good woman</span>
+    <h1>Welcome to Tiago's Fanpage — charming, driven, and searching for the right one.</h1>
+    <p>Here you'll find Tiago's story, values, highlights, photos, and the community around his playful mission: meeting a kind, confident woman who vibes with his goals and sense of humor. Dive in, have fun, and if the shoe fits… say hi. 😉</p>
+    <div class="cta">
+      <a class="btn primary" href="#join">Join the Quest</a>
+      <a class="btn" href="#highlights">See Highlights</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- ABOUT -->
+    <section id="about" class="card">
+      <h2>About Tiago</h2>
+      <p class="lead">Ambitious at work, loyal with friends, and a soft spot for good music and spontaneous road trips. This page celebrates Tiago and his open-hearted search for someone genuine.</p>
+      <div class="grid">
+        <div class="two card" style="background:#0f1a33;">
+          <h3>Quick Facts</h3>
+          <table>
+            <tr><th>From</th><td>— (add city/country)</td></tr>
+            <tr><th>What he values</th><td>Honesty, kindness, good communication</td></tr>
+            <tr><th>Hobbies</th><td>— (music, sports, travel, photography…)</td></tr>
+            <tr><th>Deal-breakers</th><td>Disrespect, dishonesty</td></tr>
+          </table>
+        </div>
+        <div class="two card" style="background:#0f1a33;">
+          <h3>The Vibe</h3>
+          <p>Chill but focused. He laughs easily, gives his best at what matters, and appreciates people who show up as their real selves.</p>
+          <ul>
+            <li>🎯 Purpose-driven and reliable</li>
+            <li>🎵 Music lover (playlist below)</li>
+            <li>🌍 Loves exploring new places</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section id="highlights" class="card" style="margin-top:16px;">
+      <h2>Highlights</h2>
+      <p class="lead">A snapshot of what makes Tiago shine — from little wins to big milestones.</p>
+      <div class="grid">
+        <div class="three card">
+          <h3>Character</h3>
+          <p>Loyal friend, playful humor, steady in tough times. He values respect and clear communication.</p>
+        </div>
+        <div class="three card">
+          <h3>Ambition</h3>
+          <p>Works hard and invests in growth — career, health, and relationships all get attention.</p>
+        </div>
+        <div class="three card">
+          <h3>Fun</h3>
+          <p>Weekend trips, late-night playlists, and a knack for turning a regular day into a mini-adventure.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="card" style="margin-top:16px;">
+      <h2>Gallery</h2>
+      <p class="lead">Drop your photos in <code>docs/assets/</code> and they’ll show here. Replace the <code>src</code> paths with your files.</p>
+      <div class="gallery">
+        <a class="gal" href="./assets/tiago-1.jpg"><img src="./assets/tiago-1.jpg" alt="Tiago 1 (replace)" /></a>
+        <a class="gal" href="./assets/tiago-2.jpg"><img src="./assets/tiago-2.jpg" alt="Tiago 2 (replace)" /></a>
+        <a class="gal" href="./assets/tiago-3.jpg"><img src="./assets/tiago-3.jpg" alt="Tiago 3 (replace)" /></a>
+        <a class="gal" href="./assets/tiago-4.jpg"><img src="./assets/tiago-4.jpg" alt="Tiago 4 (replace)" /></a>
+      </div>
+      <div class="small muted" style="margin-top:8px;">Tip: keep portrait photos around 1200×1600 and under 1.5 MB for fast loading.</div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="timeline" class="card" style="margin-top:16px;">
+      <h2>Timeline</h2>
+      <div class="timeline">
+        <div class="tl-item"><strong>2025</strong> — Launched the playful mission: <em>find a good woman</em>.</div>
+        <div class="tl-item"><strong>2024</strong> — Focused on career growth and building healthy routines.</div>
+        <div class="tl-item"><strong>2023</strong> — Traveled, met great people, learned a lot about values.</div>
+      </div>
+    </section>
+
+    <!-- PLAYLIST / LINKS -->
+    <section class="card" style="margin-top:16px;">
+      <h2>Music & Links</h2>
+      <p class="lead">A few vibes and places to find Tiago online. Replace the links below.</p>
+      <ul>
+        <li>Primary IG: <a href="#">@tiago.handle</a></li>
+        <li>Playlist: <a href="#">Late Night Drive — Spotify</a></li>
+        <li>Contact: <a href="#join">Form below</a></li>
+      </ul>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="card" style="margin-top:16px;">
+      <h2>What friends say</h2>
+      <div class="grid">
+        <blockquote class="two card">“Tiago shows up, keeps his word, and keeps you laughing.” — <span class="muted">A friend</span></blockquote>
+        <blockquote class="two card">“Kind energy, zero drama. He makes plans happen.” — <span class="muted">Another friend</span></blockquote>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="card" style="margin-top:16px;">
+      <h2>FAQ</h2>
+      <details>
+        <summary>What does “good woman” mean here?</summary>
+        <p>Someone genuine, kind, confident, communicative — with shared values and chemistry. Simple as that.</p>
+      </details>
+      <details>
+        <summary>Is this serious or playful?</summary>
+        <p>Both. The page keeps it light, but the intention is respectful and real.</p>
+      </details>
+      <details>
+        <summary>How can I reach out?</summary>
+        <p>Use the form below. Messages land in a private inbox (configure via Formspree or email link).</p>
+      </details>
+    </section>
+
+    <!-- JOIN / CONTACT FORM -->
+    <section id="join" class="card" style="margin-top:16px;">
+      <h2>Join the Quest</h2>
+      <p class="lead">Say hello or make a friendly introduction. Serious, respectful messages only. 💌</p>
+      <form id="contactForm">
+        <div class="row">
+          <div>
+            <label for="name">Your Name</label>
+            <input id="name" name="name" placeholder="Jane Doe" required />
+          </div>
+          <div>
+            <label for="email">Email / IG Handle</label>
+            <input id="email" name="email" placeholder="jane@example.com or @jane" required />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="age">Age (optional)</label>
+            <input id="age" name="age" type="number" min="18" placeholder="22" />
+          </div>
+          <div>
+            <label for="city">City / Country</label>
+            <input id="city" name="city" placeholder="Luxembourg, LU" />
+          </div>
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell us a bit about you and what caught your eye…" required></textarea>
+        </div>
+        <div class="row">
+          <div>
+            <label for="vibe">Vibe Check</label>
+            <select id="vibe" name="vibe">
+              <option>Kind & genuine</option>
+              <option>Playful & confident</option>
+              <option>Calm & thoughtful</option>
+              <option>Adventurous & spontaneous</option>
+            </select>
+          </div>
+          <div>
+            <label for="ref">How did you find this?</label>
+            <select id="ref" name="ref">
+              <option>Friend</option>
+              <option>Instagram</option>
+              <option>Search</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div style="display:flex; gap:10px; align-items:center; margin-top: 8px;">
+          <button class="btn primary" type="submit">Send</button>
+          <span id="formNote" class="muted small">No spam. You’ll get a quick confirmation.</span>
+        </div>
+      </form>
+      <p id="formSuccess" class="notice" style="display:none; margin-top:12px;">Thanks! Your message was noted locally. To receive real emails, connect Formspree (instructions below).</p>
+      <div class="small muted" style="margin-top:10px;">
+        👉 To make the form send real emails: create a free Formspree form and replace <code>handleSubmit</code> with a <code>fetch</code> POST to your endpoint.
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="close" aria-label="Close" onclick="closeLightbox()">✕ Close</button>
+    <img id="lightboxImg" alt="Expanded image" />
+  </div>
+
+  <footer class="container">
+    <small>© <span id="y"></span> Tiago Bart Fanpage • Built with GitHub Pages • <span id="counter" title="Secret visitor loves">❤️ 0</span></small>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Simple like/visit counter (local only)
+    const key = 'tiago-like-counter';
+    let c = Number(localStorage.getItem(key) || 0);
+    const el = document.getElementById('counter');
+    function render() { el.textContent = `❤️ ${c}`; }
+    el.addEventListener('click', () => { c++; localStorage.setItem(key, c); render(); });
+    render();
+
+    // Lightbox for gallery
+    const box = document.getElementById('lightbox');
+    const img = document.getElementById('lightboxImg');
+    document.querySelectorAll('.gal').forEach(a => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        img.src = a.getAttribute('href');
+        box.classList.add('active');
+      });
+    });
+    function closeLightbox(){ box.classList.remove('active'); img.removeAttribute('src'); }
+    window.closeLightbox = closeLightbox;
+    box.addEventListener('click', (e)=>{ if(e.target===box) closeLightbox(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLightbox(); });
+
+    // Fake form handler (demo)
+    const form = document.getElementById('contactForm');
+    const note = document.getElementById('formSuccess');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // TODO: Replace with your Formspree endpoint
+      note.style.display = 'block';
+      form.reset();
+    });
+  </script>
+</body>
+</html>
