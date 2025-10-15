@@ -4,155 +4,383 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tiago Bart • Love Page</title>
-  <meta name="description" content="Official love page for Tiago Bart — highlights, gallery, timeline, FAQs, and the quest to find a good woman." />
+  <meta name="description" content="Tiago Bart — Love Page: story, highlights, gallery, timeline, FAQs and a respectful way to say hello." />
   <style>
-    :root {
-      --bg: #0b1220;
-      --bg-2: #1a0c0e;
-      --text: #fff5f6;
-      --muted: #d7aeb1;
-      --card: #1b0d0f;
-      --accent: #ff6b7d;
-      --accent-2: #ff98a6;
-      --ok: #ffafbd;
-      --maxw: 1040px;
-      --radius: 16px;
-      --shadow: 0 6px 24px rgba(0,0,0,.35);
+    :root{
+      --bg: #0b0a12;        /* dunkler Hintergrund */
+      --bg-2:#190d10;       /* dunkles Rot-Braun Verlauf */
+      --text:#fff5f6;       /* zarter Weiß-Ton */
+      --muted:#e3b7bd;      /* zartes Rosa für Fließtext */
+      --card:#15111a;       /* Kartenhintergrund */
+      --accent:#ff5d75;     /* Hauptrot */
+      --accent-2:#ff8fa0;   /* helleres Rot */
+      --ok:#ffafbd;         /* rosa Akzent */
+      --maxw:1080px;
+      --radius:16px;
+      --shadow:0 6px 24px rgba(0,0,0,.35);
     }
-
-    body {
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-      color: var(--text);
-      background: radial-gradient(1000px 700px at 20% 0%, #3c1116 0%, var(--bg) 60%), linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; color:var(--text);
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
       line-height:1.6;
+      background:
+        radial-gradient(1200px 800px at 15% 0%, #3c1116 0%, var(--bg) 60%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
     }
-
-    .container {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 24px;
+    a{color:var(--accent-2);text-decoration:none}
+    a:hover{color:#fff}
+    .container{max-width:var(--maxw);margin:0 auto;padding:24px}
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(20,12,18,.55);
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
-
-    header {
-      text-align: center;
-      margin-bottom: 2em;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      color: var(--accent);
-      margin-bottom: .3em;
-    }
-
-    h2 {
-      color: var(--accent);
-      margin-top: 2em;
-    }
-
-    a {
-      color: var(--accent-2);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .intro {
-      max-width: 700px;
-      margin: 0 auto;
-      color: var(--muted);
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 14px;
-      margin-top: 1.5em;
-    }
-
-    img {
-      width: 100%;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.15);
-      object-fit: cover;
-      transition: transform .3s ease, box-shadow .3s ease;
-    }
-
-    img:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 12px rgba(255,107,125,.5);
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 3em;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .contact {
-      background: var(--card);
-      padding: 20px;
-      border-radius: 14px;
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+    .logo{width:28px;height:28px;border-radius:8px;
+      background: conic-gradient(from 140deg, #ff5d75, #ff8fa0, #ff5d75);
       box-shadow: var(--shadow);
-      margin-top: 1.5em;
     }
-
-    .contact a {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      padding: 10px 16px;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: background .2s ease;
+    .nav-links a{margin:0 8px;opacity:.9}
+    .nav-links a:hover{opacity:1}
+    /* HERO */
+    .hero{text-align:center;padding:64px 24px 24px}
+    .badge{display:inline-flex;gap:8px;align-items:center;
+      padding:6px 10px;border-radius:999px;
+      background: rgba(255,93,117,.18);
+      border:1px solid rgba(255,93,117,.45);
+      color:#ffd7dc;font-weight:600
     }
-
-    .contact a:hover {
-      background: var(--accent-2);
-    }
+    .hero h1{font-size:clamp(1.8rem,5vw,3rem);margin:.5rem 0}
+    .hero p{max-width:760px;margin:0 auto;color:var(--muted)}
+    .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+    .btn{padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.12);
+      background:var(--card);color:var(--text);box-shadow:var(--shadow)}
+    .btn.primary{background: linear-gradient(135deg, var(--accent), #ff8fa0);
+      color:#270b11;border:none;font-weight:800}
+    .btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
+    /* GRID & CARDS */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+    .two{grid-column:span 12} @media(min-width:800px){.two{grid-column:span 6}}
+    .three{grid-column:span 12} @media(min-width:900px){.three{grid-column:span 4}}
+    section h2{font-size:clamp(1.4rem,4vw,2rem);margin:8px 0 12px;color:var(--accent)}
+    section p.lead{color:var(--muted);margin-top:0}
+    /* TABLE */
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left}
+    th{color:#f6c9cf;font-weight:700}
+    /* GALLERY */
+    .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    @media(min-width:720px){.gallery{grid-template-columns:repeat(4,1fr)}}
+    .gal img{width:100%;height:180px;object-fit:cover;border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);cursor:zoom-in;transition:transform .25s}
+    .gal img:hover{transform:scale(1.03)}
+    /* LIGHTBOX */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);
+      display:none;align-items:center;justify-content:center;padding:24px;z-index:100}
+    .lightbox.active{display:flex}
+    .lightbox img{max-width:92vw;max-height:82vh;border-radius:14px;box-shadow:var(--shadow)}
+    .close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:8px 10px;cursor:pointer}
+    /* DETAILS */
+    details{background:#1c1319;border:1px solid rgba(255,255,255,.08);
+      border-radius:12px;padding:12px 14px;margin:8px 0}
+    summary{cursor:pointer;font-weight:700}
+    /* FOOTER */
+    footer{opacity:.8;margin:40px 0;text-align:center}
+    .small{font-size:.92rem}
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Tiago Bart • Love Page ❤️</h1>
-      <p class="intro">
-        From <strong>Luxembourg</strong> 🇱🇺 — Gym addict 🏋️‍♂️, passionate runner 🏃‍♂️, and on the journey to conquer an <strong>Ironman</strong>.<br>
-        Searching not just for love, but for <em>the right connection</em>.  
-        Honest, kind, and confident souls — this page is for you.
-      </p>
-    </header>
-
-    <h2>Gallery</h2>
-    <div class="gallery">
-      <img src="IMG_6342.PNG" alt="Tiago running 1" />
-      <img src="IMG_6341.PNG" alt="Tiago running 2" />
-      <img src="IMG_6343.jpg" alt="Tiago outdoors" />
-      <img src="IMG_6304.HEIC" alt="Tiago stylish view" />
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand"><span class="logo"></span><span>Tiago Bart</span></div>
+      <div class="nav-links small">
+        <a href="#about">About</a>
+        <a href="#highlights">Highlights</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#faq">FAQ</a>
+        <a href="#join">Contact</a>
+      </div>
     </div>
+  </nav>
 
-    <div class="contact">
-      <h2>Get in Touch 💌</h2>
-      <p>
-        Think you might be the one or just want to say hi?  
-        Reach out respectfully — Tiago answers genuine messages personally.
-      </p>
-      <p>
-        📧 <strong>Email:</strong> <a href="mailto:tiagobarto.lux@hotmail.com">tiagobarto.lux@hotmail.com</a><br>
-        📸 <strong>Instagram:</strong> <a href="https://www.instagram.com/tiagobarto" target="_blank">@tiagobarto</a>
-      </p>
+  <!-- HERO -->
+  <header class="hero container">
+    <span class="badge">❤️ Love Page — open to kind connections worldwide</span>
+    <h1>Welcome to Tiago's Love Page — Luxembourg’s gym & running devotee on the Ironman journey.</h1>
+    <p>
+      Ambitious at work, loyal with friends, and serious about health. This is a playful but respectful place
+      to get to know Tiago and say hello if the vibe is right.
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="#join">Say Hello</a>
+      <a class="btn" href="#highlights">See Highlights</a>
     </div>
+  </header>
 
-    <footer>
-      © <span id="year"></span> Tiago Bart — Love Page ❤️
-    </footer>
+  <main class="container">
+    <!-- ABOUT -->
+    <section id="about" class="card">
+      <h2>About Tiago</h2>
+      <p class="lead">From Luxembourg 🇱🇺 — gym lover and runner with the goal to complete an <strong>Ironman</strong>. Values honesty, kindness and clear communication.</p>
+      <div class="grid">
+        <div class="two card" style="background:#1c1319;">
+          <h3>Quick Facts</h3>
+          <table>
+            <tr><th>From</th><td>Luxembourg</td></tr>
+            <tr><th>Hobbies</th><td>Gym, running</td></tr>
+            <tr><th>Goal</th><td>Train for and complete an Ironman</td></tr>
+            <tr><th>Values</th><td>Honesty, kindness, good communication</td></tr>
+            <tr><th>Deal-breakers</th><td>Disrespect, dishonesty, ongoing drama</td></tr>
+          </table>
+        </div>
+        <div class="two card" style="background:#1c1319;">
+          <h3>The Vibe</h3>
+          <p>Chill but focused. Laughs easily, shows up reliably, and keeps things respectful. Loves a good playlist and spontaneous trips.</p>
+          <ul>
+            <li>🎯 Purpose-driven and consistent</li>
+            <li>🏃‍♂️ Training mindset — discipline & fun</li>
+            <li>🌍 Open to connections across borders</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section id="highlights" class="card" style="margin-top:16px;">
+      <h2>Highlights</h2>
+      <p class="lead">A snapshot of what makes Tiago shine — character, ambition and everyday fun.</p>
+      <div class="grid">
+        <div class="three card">
+          <h3>Character</h3>
+          <p>Loyal friend with steady energy in tough moments. Straightforward, respectful, and considerate.</p>
+        </div>
+        <div class="three card">
+          <h3>Ambition</h3>
+          <p>Invests in growth — career, health and relationships all get attention. Ironman is the long-term target.</p>
+        </div>
+        <div class="three card">
+          <h3>Fun</h3>
+          <p>Weekend runs, late-night playlists, road trips, and turning a normal day into a mini adventure.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="card" style="margin-top:16px;">
+      <h2>Gallery</h2>
+      <p class="lead">Drop these exact files into the same folder as this HTML (or adjust paths). Click to zoom.</p>
+      <div class="gallery">
+        <a class="gal" href="IMG_6342.PNG"><img src="IMG_6342.PNG" alt="Tiago running 1"></a>
+        <a class="gal" href="IMG_6341.PNG"><img src="IMG_6341.PNG" alt="Tiago running 2"></a>
+        <a class="gal" href="IMG_6343.jpg"><img src="IMG_6343.jpg" alt="Tiago outdoors"></a>
+        <a class="gal" href="IMG_6304.HEIC"><img src="IMG_6304.HEIC" alt="Tiago stylish view"></a>
+      </div>
+      <div class="small" style="margin-top:8px;color:var(--muted);">
+        Tip: Browsers zeigen <code>.HEIC</code> nicht immer an. Falls es nicht lädt, konvertiere die Datei in <code>.jpg</code> (optional).
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="timeline" class="card" style="margin-top:16px;">
+      <h2>Timeline</h2>
+      <div class="timeline">
+        <div class="tl-item"><strong>2025</strong> — Turned the search into this Love Page.</div>
+        <div class="tl-item"><strong>2024</strong> — Training consistency: running & gym on repeat.</div>
+        <div class="tl-item"><strong>2023</strong> — Travel, new people, and dialing in core values.</div>
+      </div>
+      <style>
+        .timeline{position:relative;padding-left:22px}
+        .timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:rgba(255,255,255,.15)}
+        .tl-item{position:relative;margin:12px 0 18px}
+        .tl-item::before{content:"";position:absolute;left:-2px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);
+          box-shadow:0 0 0 3px rgba(255,93,117,.25)}
+      </style>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="card" style="margin-top:16px;">
+      <h2>What friends say</h2>
+      <div class="grid">
+        <blockquote class="two card">“Shows up, keeps his word, and keeps you laughing.” — <span class="small" style="color:var(--muted)">A friend</span></blockquote>
+        <blockquote class="two card">“Kind energy, zero drama. Makes plans happen.” — <span class="small" style="color:var(--muted)">Another friend</span></blockquote>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="card" style="margin-top:16px;">
+      <h2>FAQ</h2>
+      <details>
+        <summary>What does “good connection” mean here?</summary>
+        <p>Someone genuine, kind, confident, communicative — with shared values and chemistry.</p>
+      </details>
+      <details>
+        <summary>Serious or playful?</summary>
+        <p>Both. The page keeps it light, but the intention is respectful and real.</p>
+      </details>
+      <details>
+        <summary>How can I reach out?</summary>
+        <p>Use the contact section below — email or Instagram.</p>
+      </details>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="join" class="card" style="margin-top:16px;">
+      <h2>Say Hello 💌</h2>
+      <p class="lead">Respectful intros only. Tiago answers genuine messages personally.</p>
+      <form id="contactForm">
+        <div class="grid">
+          <div class="two">
+            <label for="name" class="small" style="color:var(--muted)">Your Name</label>
+            <input id="name" name="name" placeholder="Jane Doe" required
+              style="width:100%;background:#1c1319;color:var(--text);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:12px">
+          </div>
+          <div class="two">
+            <label for="email" class="small" style="color:var(--muted)">Email / IG Handle</label>
+            <input id="email" name="email" placeholder="jane@example.com or @jane" required
+              style="width:100%;background:#1c1319;color:var(--text);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:12px">
+          </div>
+        </div>
+        <div class="grid" style="margin-top:12px">
+          <div class="two">
+            <label for="age" class="small" style="color:var(--muted)">Age (optional)</label>
+            <input id="age" name="age" type="number" min="18" placeholder="22"
+              style="width:100%;background:#1c1319;color:var(--text);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:12px">
+          </div>
+          <div class="two">
+            <label for="city" class="small" style="color:var(--muted)">City / Country</label>
+            <input id="city" name="city" placeholder="Luxembourg, LU"
+              style="width:100%;background:#1c1319;color:var(--text);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:12px">
+          </div>
+        </div>
+        <div style="margin-top:12px">
+          <label for="message" class="small" style="color:var(--muted)">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell a bit about you and what caught your eye…"
+            style="width:100%;background:#1c1319;color:var(--text);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:12px" required></textarea>
+        </div>
+        <div class="grid" style="margin-top:12px">
+          <div class="two">
+            <label for="vibe" class="small" style="color:var(--muted)">Vibe Check</label>
+            <select id="vibe" name="vibe"
+              style="width:100%;background:#1c1319;color:var(--text);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:12px">
+              <option>Kind & genuine</option>
+              <option>Playful & confident</option>
+              <option>Calm & thoughtful</option>
+              <option>Adventurous & spontaneous</option>
+            </select>
+          </div>
+          <div class="two">
+            <label for="ref" class="small" style="color:var(--muted)">How did you find this?</label>
+            <select id="ref" name="ref"
+              style="width:100%;background:#1c1319;color:var(--text);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:12px">
+              <option>Friend</option>
+              <option>Instagram</option>
+              <option>Search</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap">
+          <button class="btn primary" type="submit">Send</button>
+          <a id="mailtoLink" class="btn" href="#">or send via email</a>
+          <span class="small" style="color:var(--muted)">Instant email opens your mail app with all fields filled.</span>
+        </div>
+      </form>
+      <p id="formSuccess" class="small" style="display:none;margin-top:12px;color:#d7ffd7">
+        Thanks! If your email app didn’t open, please use the email button above.
+      </p>
+
+      <div class="small" style="margin-top:10px;color:var(--muted);">
+        📧 Direct address: <a href="mailto:tiagobarto.lux@hotmail.com">tiagobarto.lux@hotmail.com</a> — or DM on
+        <a href="https://www.instagram.com/tiagobarto" target="_blank" rel="noopener">@tiagobarto</a>.
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="close" aria-label="Close" onclick="closeLightbox()">✕ Close</button>
+    <img id="lightboxImg" alt="Expanded image" />
   </div>
 
+  <footer class="container">
+    <small>© <span id="y"></span> Tiago Bart Love Page • Built on GitHub Pages • <span id="counter" title="Secret visitor hearts">❤️ 0</span></small>
+  </footer>
+
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Simple like/visit counter (local only)
+    (function(){
+      const key = 'tiago-like-counter';
+      let c = Number(localStorage.getItem(key) || 0);
+      const el = document.getElementById('counter');
+      function render(){ el.textContent = `❤️ ${c}`; }
+      el.addEventListener('click', ()=>{ c++; localStorage.setItem(key, c); render(); });
+      render();
+    })();
+
+    // Lightbox for gallery
+    (function(){
+      const box = document.getElementById('lightbox');
+      const img = document.getElementById('lightboxImg');
+      document.querySelectorAll('.gal').forEach(a=>{
+        a.addEventListener('click', e=>{
+          e.preventDefault();
+          img.src = a.getAttribute('href');
+          box.classList.add('active');
+        });
+      });
+      function closeLightbox(){ box.classList.remove('active'); img.removeAttribute('src'); }
+      window.closeLightbox = closeLightbox;
+      box.addEventListener('click', e=>{ if(e.target===box) closeLightbox(); });
+      document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeLightbox(); });
+    })();
+
+    // Direct email sending via mailto
+    (function(){
+      const form = document.getElementById('contactForm');
+      const mailto = document.getElementById('mailtoLink');
+      const success = document.getElementById('formSuccess');
+
+      function buildMailto(){
+        const to = 'tiagobarto.lux@hotmail.com';
+        const name = encodeURIComponent(document.getElementById('name').value || '');
+        const contact = encodeURIComponent(document.getElementById('email').value || '');
+        const age = encodeURIComponent(document.getElementById('age').value || '');
+        const city = encodeURIComponent(document.getElementById('city').value || '');
+        const vibe = encodeURIComponent(document.getElementById('vibe').value || '');
+        const ref  = encodeURIComponent(document.getElementById('ref').value || '');
+        const msg  = encodeURIComponent(document.getElementById('message').value || '');
+        const subject = `New message for Tiago from ${decodeURIComponent(name) || '—'}`;
+        const body = `Name: ${decodeURIComponent(name)}%0AContact: ${decodeURIComponent(contact)}%0AAge: ${decodeURIComponent(age)}%0ACity: ${decodeURIComponent(city)}%0AVibe: ${decodeURIComponent(vibe)}%0AFound via: ${decodeURIComponent(ref)}%0A%0A— Message —%0A${decodeURIComponent(msg)}`;
+        return `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      }
+
+      mailto.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const href = buildMailto();
+        mailto.href = href;
+        window.location.href = href;
+      });
+
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const href = buildMailto();
+        window.location.href = href; // öffnet Mail-App
+        success.style.display = 'block';
+        setTimeout(()=> success.style.display='none', 4000);
+      });
+    })();
   </script>
 </body>
 </html>
